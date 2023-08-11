@@ -1,0 +1,6 @@
+/* chart-styles.css */
+.chart-container {
+    position: relative;
+    margin: auto;
+    max-width: 600px;
+  }

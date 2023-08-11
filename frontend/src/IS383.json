@@ -1,0 +1,69 @@
+[
+{"type":"1","name":"Single Sized Coarse Aggregate","size":[
+{"size_id":"10","s":"63","type":"1","s_size":[
+    {"seive_id":"100","ss":"80","size_id":"10","IS":[
+        {"is_id":"1000","min":"100","max":"100","seive_id":"100"}]},
+    {"seive_id":"101","ss":"63","size_id":"10","IS":[
+        {"is_id":"1001","min":"85","max":"100","seive_id":"101"}]},
+    {"seive_id":"102","ss":"40","size_id":"10","IS":[
+        {"is_id":"1002","min":"0","max":"30","seive_id":"102"}]},
+    {"seive_id":"103","ss":"20","size_id":"10","IS":[
+        {"is_id":"1003","min":"0","max":"5","seive_id":"103"}]},
+    {"seive_id":"106","ss":"10","size_id":"10","IS":[
+        {"is_id":"1004","min":"0","max":"5","seive_id":"106"}]}]},
+{"size_id":"11","s":"40","type":"1","s_size":[
+    {"seive_id":"101","ss":"63","size_id":"11","IS":[
+        {"is_id":"1005","min":"100","max":"100","seive_id":"101"}]},
+    {"seive_id":"102","ss":"40","size_id":"11","IS":[
+        {"is_id":"1006","min":"85","max":"100","seive_id":"102"}]},
+    {"seive_id":"103","ss":"20","size_id":"11","IS":[
+        {"is_id":"1007","min":"0","max":"20","seive_id":"103"}]},
+    {"seive_id":"106","ss":"10","size_id":"11","IS":[
+        {"is_id":"1008","min":"0","max":"5","seive_id":"106"}]}]},
+{"size_id":"12","s":"20","type":"1","s_size":[
+    {"seive_id":"102","ss":"40","size_id":"12","IS":[
+        {"is_id":"1009","min":"100","max":"100","seive_id":"102"}]},
+    {"seive_id":"103","ss":"20","size_id":"12","IS":[
+        {"is_id":"1010","min":"85","max":"100","seive_id":"103"}]},
+    {"seive_id":"106","ss":"10","size_id":"12","IS":[
+        {"is_id":"1011","min":"0","max":"20","seive_id":"106"}]},
+    {"seive_id":"107","ss":"4.75","size_id":"12","IS":[
+        {"is_id":"1012","min":"0","max":"5","seive_id":"107"}]}]},
+{"size_id":"13","s":"16","type":"1","s_size":[
+    {"seive_id":"103","ss":"20","size_id":"13","IS":[
+        {"is_id":"1013","min":"100","max":"100","seive_id":"103"}]},
+    {"seive_id":"104","ss":"16","size_id":"13","IS":[
+        {"is_id":"1014","min":"85","max":"100","seive_id":"104"}]},
+    {"seive_id":"106","ss":"10","size_id":"13","IS":[
+        {"is_id":"1015","min":"0","max":"30","seive_id":"106"}]},
+    {"seive_id":"107","ss":"4.75","size_id":"13","IS":[
+        {"is_id":"1016","min":"0","max":"5","seive_id":"107"}]}]},
+{"size_id":"14","s":"12.5","type":"1","s_size":[
+    {"seive_id":"104","ss":"16","size_id":"14","IS":[
+        {"is_id":"1017","min":"100","max":"100","seive_id":"104"}]},
+    {"seive_id":"105","ss":"12.5","size_id":"14","IS":[
+        {"is_id":"1018","min":"85","max":"100","seive_id":"105"}]},
+    {"seive_id":"106","ss":"10","size_id":"14","IS":[
+        {"is_id":"1019","min":"0","max":"45","seive_id":"106"}]},
+    {"seive_id":"107","ss":"4.75","size_id":"14","IS":[
+        {"is_id":"1020","min":"0","max":"10","seive_id":"107"}]}]},
+{"size_id":"15","s":"10","type":"1","s_size":[
+    {"seive_id":"105","ss":"12..5","size_id":"15","IS":[
+        {"is_id":"1021","min":"100","max":"100","seive_id":"105"}]},
+    {"seive_id":"106","ss":"10","size_id":"15","IS":[
+        {"is_id":"1022","min":"85","max":"100","seive_id":"106"}]}]}
+]
+},
+{"type":"2","name":"Graded Aggregate","size":[
+    {"size_id":"16","s":"40","type":"2","s_size":[{"seive_id":"109","ss":"80","size_id":"16","IS":[{"is_id":"1023","min":"100","max":"100","seive_id":"109"}]},{"seive_id":"111","ss":"40","size_id":"16","IS":[{"is_id":"1024","min":"90","max":"100","seive_id":"111"}]},{"seive_id":"112","ss":"20","size_id":"16","IS":[{"is_id":"1025","min":"30","max":"70","seive_id":"112"}]},{"seive_id":"115","ss":"10","size_id":"16","IS":[{"is_id":"1026","min":"10","max":"35","seive_id":"115"}]},{"seive_id":"116","ss":"4.75","size_id":"16","IS":[{"is_id":"1027","min":"0","max":"5","seive_id":"116"}]}]},
+    {"size_id":"17","s":"20","type":"2","s_size":[{"seive_id":"111","ss":"40","size_id":"17","IS":[{"is_id":"1028","min":"100","max":"100","seive_id":"111"}]},{"seive_id":"112","ss":"20","size_id":"17","IS":[{"is_id":"1029","min":"90","max":"100","seive_id":"112"}]},{"seive_id":"115","ss":"10","size_id":"17","IS":[{"is_id":"1030","min":"25","max":"35","seive_id":"115"}]},{"seive_id":"116","ss":"4.75","size_id":"17","IS":[{"is_id":"1031","min":"0","max":"10","seive_id":"116"}]}]},
+    {"size_id":"18","s":"16","type":"2","s_size":[{"seive_id":"112","ss":"20","size_id":"18","IS":[{"is_id":"1032","min":"100","max":"100","seive_id":"112"}]},{"seive_id":"113","ss":"16","size_id":"18","IS":[{"is_id":"1033","min":"90","max":"100","seive_id":"113"}]},{"seive_id":"115","ss":"10","size_id":"18","IS":[{"is_id":"1034","min":"30","max":"70","seive_id":"115"}]},{"seive_id":"116","ss":"4.75","size_id":"18","IS":[{"is_id":"1035","min":"0","max":"10","seive_id":"116"}]}]},
+    {"size_id":"19","s":"12.5","type":"2","s_size":[{"seive_id":"112","ss":"20","size_id":"19","IS":[{"is_id":"1036","min":"100","max":"100","seive_id":"112"}]},{"seive_id":"114","ss":"12.5","size_id":"19","IS":[{"is_id":"1037","min":"90","max":"100","seive_id":"114"}]},{"seive_id":"115","ss":"10","size_id":"19","IS":[{"is_id":"1038","min":"40","max":"85","seive_id":"115"}]},{"seive_id":"116","ss":"4.75","size_id":"19","IS":[{"is_id":"1039","min":"0","max":"10","seive_id":"116"}]}]}
+    ]
+    
+    }
+
+
+
+
+]
