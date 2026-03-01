@@ -148,11 +148,10 @@ const tw = data.tw;
 const min = data.min;
 const max = data.max;
 
-var Asql = "SELECT cwr FROM seive WHERE test_id = ?";
-db.query(Asql, [t_id - 1], function (error, result) {
+var Asql = "SELECT cwr FROM seive WHERE test_id = ? AND samID = ?";
+db.query(Asql, [t_id - 1, s_id], function (error, result) {
     if (error) throw error;
-    console.log(result[0].cwr);
-    const prv_wr = result[0].cwr;
+    const prv_wr = (result && result.length > 0) ? result[0].cwr : 0;
     var cwr = wr + prv_wr;
     const cwrp = ((cwr / tw) * 100);
     const FinCwrp = cwrp.toFixed(2);
@@ -170,7 +169,7 @@ res.json({send});
 
 app.post('/clientSe',function(req,res){
     const formData=req.body; 
-    const project = formData.projet;
+    const project = formData.project;
     const name = formData.Cname;
     const contractor = formData.contractor;
     const consultant = formData.consultant;
@@ -225,7 +224,7 @@ app.post('/reportSe', function(req,res){
       console.log(s_id);
 
     //yo vayo aba client table lai ni join garera report ma milauna baki xa
-    var query1 = 'SELECT t1.test_id,t1.ss,t1.wr,t1.cwr,t1.cwrp,t1.cp,t1.min,t1.max,t1.samID,t2.source,t2.disc,t2.s_by,t2.s_date,t2.t_by,t2.t_date,t3.name,t3.contractor,t3.consultant FROM seive AS t1 JOIN ssample AS t2 ON t1.samID = t2.s_id JOIN sclient AS t3 ON t2.s_id = t3.SamID WHERE t1.samID = ? ORDER BY test_id DESC ';
+    var query1 = 'SELECT t1.test_id,t1.ss,t1.wr,t1.cwr,t1.cwrp,t1.cp,t1.min,t1.max,t1.samID,t2.source,t2.disc,t2.s_by,t2.s_date,t2.t_by,t2.t_date,t3.name,t3.contractor,t3.consultant FROM seive AS t1 JOIN ssample AS t2 ON t1.samID = t2.s_id JOIN sclient AS t3 ON t2.s_id = t3.SamID WHERE t1.samID = ? ORDER BY test_id ASC ';
     db.query(query1,[s_id],function(error,result1){
         if(error) throw error;
         var data = result1;

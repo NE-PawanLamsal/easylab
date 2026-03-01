@@ -26,26 +26,28 @@ function SeiveReport () {
       }
     }, []);
 
+    const rows = location.state.dataF;
+
     const chartData = {
-        labels: [location.state.dataF[0].ss,location.state.dataF[1].ss,location.state.dataF[2].ss,location.state.dataF[3].ss],
+        labels: rows.map(r => r.ss),
         datasets: [
           {
-            label: 'Data',
-            data: [location.state.dataF[0].cp,location.state.dataF[1].cp,location.state.dataF[2].cp,location.state.dataF[3].cp],
+            label: 'Cumulative Passing (%)',
+            data: rows.map(r => parseFloat(r.cp)),
             fill: false,
             borderColor: 'rgb(0, 0, 250)',
             tension: 0.4,
           },{
-            label: 'Max',
-            data: [location.state.dataF[0].max,location.state.dataF[1].max,location.state.dataF[2].max,location.state.dataF[3].max],
+            label: 'Max (IS:383)',
+            data: rows.map(r => parseFloat(r.max)),
             fill: false,
             borderColor: 'rgb(250, 0, 0)',
             tension: 0.4,
           },{
-            label: 'Min',
-            data: [location.state.dataF[0].min,location.state.dataF[1].min,location.state.dataF[2].min,location.state.dataF[3].min],
+            label: 'Min (IS:383)',
+            data: rows.map(r => parseFloat(r.min)),
             fill: false,
-            borderColor: 'rgb(0, 250, 0)',
+            borderColor: 'rgb(0, 200, 0)',
             tension: 0.4,
           },
         ],
@@ -127,7 +129,6 @@ function SeiveReport () {
         
         <div>
         <p className='words'>Grading of Seive Analysis</p>
-        <p className='rem'>Total Weight(gm):</p>
         <table>
             <tr>
                 <th>Seive size(mm)</th>
@@ -139,46 +140,18 @@ function SeiveReport () {
                 <th>Max. Specified Passing(%)</th>
                 <th>Remarks</th>
             </tr>
-            <tr>
-                <td>{location.state.dataF[0].ss}</td>
-                <td>{location.state.dataF[0].wr}</td>
-                <td>{location.state.dataF[0].cwr}</td>
-                <td>{location.state.dataF[0].cwrp}</td>
-                <td>{location.state.dataF[0].cp}</td>
-                <td>{location.state.dataF[0].min}</td>
-                <td>{location.state.dataF[0].max}</td>
-                <td></td>
-            </tr>
-            <tr>
-            <td>{location.state.dataF[1].ss}</td>
-                <td>{location.state.dataF[1].wr}</td>
-                <td>{location.state.dataF[1].cwr}</td>
-                <td>{location.state.dataF[1].cwrp}</td>
-                <td>{location.state.dataF[1].cp}</td>
-                <td>{location.state.dataF[1].min}</td>
-                <td>{location.state.dataF[1].max}</td>
-                <td></td>
-            </tr>
-            <tr>
-            <td>{location.state.dataF[2].ss}</td>
-                <td>{location.state.dataF[2].wr}</td>
-                <td>{location.state.dataF[2].cwr}</td>
-                <td>{location.state.dataF[2].cwrp}</td>
-                <td>{location.state.dataF[2].cp}</td>
-                <td>{location.state.dataF[2].min}</td>
-                <td>{location.state.dataF[2].max}</td>
-                <td></td>
-            </tr>
-            <tr>
-            <td>{location.state.dataF[3].ss}</td>
-                <td>{location.state.dataF[3].wr}</td>
-                <td>{location.state.dataF[3].cwr}</td>
-                <td>{location.state.dataF[3].cwrp}</td>
-                <td>{location.state.dataF[3].cp}</td>
-                <td>{location.state.dataF[3].min}</td>
-                <td>{location.state.dataF[3].max}</td>
-                <td></td>
-            </tr>
+            {rows.map((row, index) => (
+                <tr key={index}>
+                    <td>{row.ss}</td>
+                    <td>{row.wr}</td>
+                    <td>{row.cwr}</td>
+                    <td>{row.cwrp}</td>
+                    <td>{row.cp}</td>
+                    <td>{row.min}</td>
+                    <td>{row.max}</td>
+                    <td></td>
+                </tr>
+            ))}
         </table>
         {/*<DynamicChart data={chartData} options={chartOptions} />*/}
         <div className="chart-container">
@@ -186,6 +159,9 @@ function SeiveReport () {
     </div>
     </div>
 
+    <div style={{textAlign:'center', margin:'16px 0'}}>
+        <button className="button" onClick={() => window.print()}>Print Report</button>
+    </div>
     <div>
         <p className='rem'>Remarks: Red Curve Represents Max. Green Represents Min. </p>
             <div className='lastko'>
