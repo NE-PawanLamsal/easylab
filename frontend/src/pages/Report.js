@@ -28,18 +28,24 @@ function Report () {
 
     const use = location.state.dataF.slice();
     console.log(use);
-    const data2 = use.slice();
-    console.log("unsorted = " + data2);
-    data2.sort((a, b) => a.dd - b.dd);
-    const MDD = data2[4].dd; 
-    const OMC = data2[4].mc;
+
+    // Sort by moisture content ascending for the Proctor curve
+    const chartSorted = [...use].sort((a, b) => parseFloat(a.mc) - parseFloat(b.mc));
+
+    // MDD is the peak dry density; OMC is the corresponding moisture content
+    const maxEntry = chartSorted.reduce(
+      (best, row) => parseFloat(row.dd) > parseFloat(best.dd) ? row : best,
+      chartSorted[0]
+    );
+    const MDD = maxEntry.dd;
+    const OMC = maxEntry.mc;
 
     const chartData = {
-        labels: [use[4].mc,use[3].mc,use[2].mc,use[1].mc,use[0].mc],
+        labels: chartSorted.map(d => d.mc),
         datasets: [
           {
-            label: 'Data',
-            data: [use[0].dd,use[1].dd,use[2].dd,use[3].dd,use[4].dd],
+            label: 'Dry Density vs Moisture Content',
+            data: chartSorted.map(d => parseFloat(d.dd)),
             fill: false,
             borderColor: 'rgb(0, 0, 250)',
             tension: 0.4,
@@ -263,13 +269,15 @@ return (
         </div>
         <table>
             <tr>
-            <th>OMC</th>
-            <td></td></tr>
-            <th>MDD</th>
-            <td>{MDD}</td>
+                <th>OMC (%)</th>
+                <td>{OMC}</td>
+                <th>MDD (gms/cc)</th>
+                <td>{MDD}</td>
+            </tr>
         </table>
-       {/* <p>MDD = {MDD}</p>
-        <p>OMC = {OMC}</p>*/}
+        <div style={{textAlign:'center', margin:'16px 0'}}>
+            <button className="button" onClick={() => window.print()}>Print Report</button>
+        </div>
         <div>
             {/*<p className='lastko'>Barahi Technical Solutions Pvt Ltd</p>
             <p className='lastko'>Witness</p>*/}
